@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        GIT_CREDENTIALS_ID = 'your-git-credentials-id' // pending
+        GIT_CREDENTIALS_ID = 'GitHub-Credentials' // pending
         SERVER_IP = '44.201.193.5' // public ec2 hosted ip
         SSH_CREDENTIALS_ID = 'ssh-ec2-keypair'
     }
