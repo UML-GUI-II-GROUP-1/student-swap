@@ -2,21 +2,21 @@ pipeline {
     agent any
 
     environment {
-        GIT_CREDENTIALS_ID = 'GitHub-Credentials' // pending
-        SERVER_IP = '44.201.193.5' // public ec2 hosted ip
+        GIT_CREDENTIALS_ID = 'GitHub-Credentials'
+        SERVER_IP = '44.201.193.5' // hosted server Public ip
         SSH_CREDENTIALS_ID = 'ssh-ec2-keypair'
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git(credentialsId: env.GIT_CREDENTIALS_ID, url: 'https://github.com/UML-GUI-II-GROUP-1/student-swap.git')
+                git branch: 'main', credentialsId: env.GIT_CREDENTIALS_ID, url: 'https://github.com/UML-GUI-II-GROUP-1/student-swap.git'
             }
         }
         stage('Build Backend') {
             steps {
                 dir('backend') {
-                    sh './build.sh' // create one for frontend
+                    sh './build.sh'
                 }
             }
         }
@@ -31,7 +31,7 @@ pipeline {
         stage('Test Backend') {
             steps {
                 dir('backend') {
-                    sh './test.sh' // create one for backend
+                    sh './test.sh'
                 }
             }
         }
