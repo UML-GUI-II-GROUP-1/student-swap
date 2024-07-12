@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         GIT_CREDENTIALS_ID = 'GitHub-Credentials'
-        SERVER_IP = '44.201.193.5' // hosted server Public ip
+        SERVER_IP = '44.201.193.5' // Hosted Server on EC2 instance public IP
         SSH_CREDENTIALS_ID = 'ssh-ec2-keypair'
     }
 
@@ -11,6 +11,11 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main', credentialsId: env.GIT_CREDENTIALS_ID, url: 'https://github.com/UML-GUI-II-GROUP-1/student-swap.git'
+            }
+        }
+        stage('Set Permissions') {
+            steps {
+                sh 'chmod +x backend/build.sh backend/test.sh backend/start_backend.sh deploy.sh'
             }
         }
         stage('Build Backend') {
@@ -48,7 +53,8 @@ pipeline {
                     sh '''
                     scp -o StrictHostKeyChecking=no -r backend ec2-user@${SERVER_IP}:/home/ec2-user/
                     scp -o StrictHostKeyChecking=no -r frontend ec2-user@${SERVER_IP}:/home/ec2-user/
-                    ssh -o StrictHostKeyChecking=no ec2-user@${SERVER_IP} 'bash -s' < deploy.sh
+                    scp -o StrictHostKeyChecking=no deploy.sh ec2-user@${SERVER_IP}:/home/ec2-user/
+                    ssh -o StrictHostKeyChecking=no ec2-user@${SERVER_IP} 'bash /home/ec2-user/deploy.sh'
                     '''
                 }
             }
