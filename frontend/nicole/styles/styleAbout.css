@@ -1,0 +1,122 @@
+/* Base styling for the body element */
+body {
+    font-family: Arial, sans-serif; /* Sets the font family to Arial */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    display: flex; /* Uses flexbox for layout */
+    flex-direction: column; /* Arranges children in a column */
+    min-height: 100vh; /* Ensures the body is at least the height of the viewport */
+}
+
+/* Styling for the header element */
+header {
+    background-color: #0067B1; /* Sets the background color to PMS 293 Blue */
+    color: white; /* Sets the text color to white */
+    display: flex; /* Uses flexbox for layout */
+    justify-content: space-between; /* Spaces out children with space in between */
+    align-items: center; /* Aligns children vertically in the center */
+    padding: 10px 20px; /* Adds padding inside the header */
+}
+
+/* Styling for the logo container */
+.logo {
+    display: flex; /* Uses flexbox for layout */
+    align-items: center; /* Aligns children vertically in the center */
+}
+
+/* Styling for the logo image */
+.logo img {
+    width: 100px; /* Sets the width of the logo */
+    height: 90px; /* Sets the height of the logo */
+    margin-right: 10px; /* Adds margin to the right of the logo */
+}
+
+/* Styling for the navigation menu */
+nav ul {
+    list-style-type: none; /* Removes default list styling */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    display: flex; /* Uses flexbox for layout */
+}
+
+/* Styling for each navigation item */
+nav ul li {
+    margin-right: 20px; /* Adds margin to the right of each item */
+}
+
+/* Styling for each navigation link */
+nav ul li a {
+    color: white; /* Sets the text color to white */
+    text-decoration: none; /* Removes default underline */
+    padding: 5px 10px; /* Adds padding inside each link */
+    border-radius: 5px; /* Rounds the corners of each link */
+}
+
+/* Hover effect for navigation links */
+nav ul li a:hover {
+    text-decoration: underline; /* Underlines the text on hover */
+    background-color: #D32F2F; /* Changes background color to PMS 186 Red on hover */
+}
+
+/* Styling for the main content area */
+main {
+    flex: 1; /* Allows the main area to grow and fill available space */
+    text-align: center; /* Centers the text */
+    padding: 20px; /* Adds padding inside the main area */
+    background-color: #f9f9f9; /* Sets the background color to light gray */
+    color: #000; /* Sets the text color to black */
+    position: relative; /* Allows positioning of child elements */
+}
+
+/* Styling for the heading elements in the main content */
+main h2 {
+    color: #0067B1; /* Sets the text color to PMS 293 Blue */
+    margin-top: 20px; /* Adds margin to the top of the heading */
+}
+
+/* Styling for the paragraph elements in the main content */
+main p {
+    color: #000; /* Sets the text color to black */
+    margin: 20px 0; /* Adds margin to the top and bottom of the paragraphs */
+}
+
+/* Styling for the container of corner images (mascot and speech bubble) */
+.corner-images {
+    position: fixed; /* Fixes the position relative to the viewport */
+    bottom: 20px; /* Positions the container 20px from the bottom */
+    left: 20px; /* Positions the container 20px from the left */
+    display: flex; /* Uses flexbox for layout */
+    align-items: center; /* Aligns children vertically in the center */
+}
+
+/* Styling for the mascot image */
+.corner-mascot {
+    width: 150px; /* Sets the width of the mascot image */
+    height: auto; /* Maintains the aspect ratio of the image */
+}
+
+/* Styling for the speech bubble */
+.speech-bubble {
+    position: absolute; /* Positions the speech bubble relative to the mascot */
+    left: 160px; /* Positions the bubble 160px from the left of its container */
+    bottom: 60px; /* Positions the bubble 60px from the bottom of its container */
+}
+
+/* Styling for the speech bubble image */
+.speech-bubble img {
+    width: 200px; /* Sets the width of the speech bubble */
+    height: auto; /* Maintains the aspect ratio of the image */
+}
+
+/* Styling for the text inside the speech bubble */
+.bubble-text {
+    position: absolute; /* Positions the text inside the speech bubble */
+    top: 40%; /* Positions the text 40% from the top of the bubble */
+    left: 50%; /* Centers the text horizontally */
+    transform: translate(-50%, -50%); /* Centers the text vertically and horizontally */
+    color: #D32F2F; /* Sets the text color to PMS 186 Red */
+    font-size: 18px; /* Sets the font size */
+    font-weight: bold; /* Sets the font weight to bold */
+    text-align: center; /* Centers the text */
+    width: 100%; /* Ensures the text container takes the full width of the bubble */
+}
